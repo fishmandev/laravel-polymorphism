@@ -6,23 +6,13 @@ class Add implements OperationInterface
 {
     protected const VALUE = 10;
 
-    protected const OPERATOR = '+';
-
     /**
-     * Returns value
+     * Makes calculation
+     * @param int $value
      * @return int
      */
-    public function getValue(): int
+    public function calc(int $value): int
     {
-        return self::VALUE;
-    }
-
-    /**
-     * Returns operator
-     * @return string
-     */
-    public function getOperator(): string
-    {
-        return self::OPERATOR;
+        return $value + self::VALUE;
     }
 }

@@ -5,14 +5,9 @@ namespace App\Services\Operations;
 interface OperationInterface
 {
     /**
-     * Returns value
+     * Makes calculation
+     * @param int $value
      * @return int
      */
-    public function getValue(): int;
-
-    /**
-     * Returns operator
-     * @return string
-     */
-    public function getOperator(): string;
+    public function calc(int $value): int;
 }

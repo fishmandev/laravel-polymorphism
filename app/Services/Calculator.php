@@ -20,32 +20,15 @@ class Calculator
     }
 
     /**
-     * @return void
-     * @throws Exception
-     */
-    protected function calc()
-    {
-        foreach ($this->operations as $operation) {
-            switch ($operation->getOperator()) {
-                case '+':
-                    $this->value += $operation->getValue();
-                    break;
-                case '-':
-                    $this->value -= $operation->getValue();
-                    break;
-                default:
-                    throw new Exception(sprintf("Operation '%s' has not implemented", $operation->getOperator()));
-            }
-        }
-    }
-
-    /**
      * @return int
      * @throws Exception
      */
     public function getResult(): int
     {
-        $this->calc();
+        foreach ($this->operations as $operation) {
+            $this->value = $operation->calc($this->value);
+        }
+
         return $this->value;
     }
 }
