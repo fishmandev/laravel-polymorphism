@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Calculator;
 use Illuminate\Http\Response;
 
 class DefaultController extends Controller
 {
-    public function index(): Response
+    /**
+     * @param Calculator $cal
+     * @return Response
+     * @throws \Exception
+     */
+    public function index(Calculator $cal): Response
     {
-        return response(['Hello World!']);
+        return response(['result' => $cal->getResult()]);
     }
 }
